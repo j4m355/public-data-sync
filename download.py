@@ -14,9 +14,11 @@ import CustomLogHandler
 
 logger = logging.getLogger('download')
 formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-fileHandler = CustomLogHandler.CustomLogHandler('download.log')
+fileHandler = logging.StreamHandler(sys.stdout)
 fileHandler.setFormatter(formatter)
 logger.setLevel(logging.DEBUG)
+
+
 logger.addHandler(fileHandler)
 
 summaries_bucket = 'v2.0-summaries'
